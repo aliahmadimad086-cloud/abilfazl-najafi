@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin.php
+Disallow: /db.php
+Disallow: /config.php
+Disallow: /pay.php
+Disallow: /verify.php
+Disallow: /register_workshop.php
+Disallow: /get_busy_slots.php
+Disallow: /track.php

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>راهنمای جامع مراجع و دفاتر خدمات قضایی استان خراسان رضوی | دفتر وکالت دکتر نجفی</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- جایگزین با این: -->
+<script src="assets/js/tailwind.min.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#0f172a',
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              800: '#1e293b',
+              900: '#0f172a'
+            },
+            accent: {
+              DEFAULT: '#C5A880',
+              dark: '#A88E65',
+              light: '#D9C3A5'
+            },
+            charcoal: '#334155',
+            surface: '#F8FAFC'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&display=swap');
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- نوار بالای صفحه -->
+  
+  <!-- نوار بالای صفحه هماهنگ با رنگ لوگو -->
+  <header class="sticky top-0 z-50 bg-[#0c131d] border-b border-amber-500/20 shadow-md">
+    <div class="mx-auto max-w-7xl px-4 py-2.5 flex items-center justify-between">
+      
+      <!-- ۱. لوگوی اختصاصی ابوالفضل نجفی -->
+      <a href="index.html" class="flex items-center shrink-0">
+        <img 
+          src="1000016237.jpg" 
+          alt="ابوالفضل نجفی وکیل مدافع" 
+          class="h-12 md:h-14 w-auto object-contain transition-transform duration-200 hover:scale-105"
+        >
+      </a>
+
+      <!-- ۲. دکمه‌های ناوبری سریع -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="index.html" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-white/5 px-3 py-1.5 text-xs font-bold text-white hover:text-amber-400 hover:border-amber-500/40 transition-colors">
+          <i class="fa-solid fa-house"></i> صفحه اصلی
+        </a>
+        <a href="constitution.html" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-white/5 px-3 py-1.5 text-xs font-bold text-white hover:text-amber-400 hover:border-amber-500/40 transition-colors">
+          <i class="fa-solid fa-book-bookmark"></i> پایگاه قوانین
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- بنر هدر و فیلتر جستجو -->
+  <section class="bg-slate-900 text-white py-10 px-4 shadow-inner relative overflow-hidden">
+    <div class="mx-auto max-w-4xl text-center relative z-10">
+      <span class="inline-block rounded-full bg-amber-400/20 px-4 py-1 text-xs font-bold text-amber-300 mb-3">
+        بانک داده‌های دسترسی محاکم دادگستری استان خراسان رضوی
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+        نشانی مراجع قضایی و دفاتر خدمات الکترونیک قضایی
+      </h2>
+      <p class="mt-2 text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        جستجو و دسترسی به اطلاعات آدرس، تلفن و کد دفاتر در کلیه شهرستان‌های استان خراسان رضوی
+      </p>
+
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 max-w-3xl mx-auto">
+        <!-- فیلتر انتخاب شهرستان -->
+        <select id="city-filter" class="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-xs sm:text-sm font-bold text-amber-300 focus:outline-none focus:border-amber-400">
+          <option value="all">همه شهرستان‌ها (خراسان رضوی)</option>
+          <option value="مشهد">مشهد</option>
+          <option value="نیشابور">نیشابور</option>
+          <option value="سبزوار">سبزوار</option>
+          <option value="تربت حیدریه">تربت حیدریه</option>
+          <option value="قوچان">قوچان</option>
+          <option value="کاشمر">کاشمر</option>
+          <option value="تربت جام">تربت جام</option>
+          <option value="گناباد">گناباد</option>
+          <option value="تایباد">تایباد</option>
+          <option value="چناران">چناران</option>
+          <option value="سرخس">سرخس</option>
+          <option value="فریمان">فریمان</option>
+          <option value="خواف">خواف</option>
+          <option value="درگز">درگز</option>
+          <option value="بردسکن">بردسکن</option>
+        </select>
+
+        <!-- کادر جستجوی کلمه‌ای -->
+        <div class="relative flex-1">
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400">
+            <i class="fa-solid fa-magnifying-glass text-sm"></i>
+          </div>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="جستجوی نام مجتمع، شعبه، خیابان یا کد دفتر..." 
+            class="w-full rounded-xl border border-slate-700 bg-white/10 pr-10 pl-4 py-3 text-xs sm:text-sm text-white placeholder-slate-400 backdrop-blur-md focus:border-amber-400 focus:bg-white focus:text-slate-800 focus:outline-none transition-all"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- سوئیچ بین ۲ سربرگ اصلی -->
+  <section class="bg-white border-b border-slate-200 py-3 sticky top-16 z-40 shadow-sm">
+    <div class="mx-auto max-w-7xl px-4 flex justify-center gap-3">
+      <button onclick="setMainTab('courts')" id="tab-btn-courts" class="px-5 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition-all bg-slate-900 text-amber-400 shadow-sm">
+        <i class="fa-solid fa-landmark-flag ml-1.5"></i> ۱. دادگاه‌ها، دادسراها و مراجع قضایی
+      </button>
+
+      <button onclick="setMainTab('offices')" id="tab-btn-offices" class="px-5 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        <i class="fa-solid fa-folder-tree ml-1.5"></i> ۲. دفاتر خدمات الکترونیک قضایی
+      </button>
+    </div>
+  </section>
+
+  <!-- نمایش نتایج -->
+  <main class="mx-auto max-w-7xl px-4 py-10 flex-grow w-full">
+    <div id="results-count" class="text-xs text-slate-500 font-bold mb-4"></div>
+    <div id="data-container" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- محتوا داینامیک با جاوااسکریپت تزریق می‌شود -->
+    </div>
+  </main>
+
+  <footer class="bg-slate-900 py-6 text-center text-xs text-slate-400 border-t border-slate-800">
+    <p class="font-bold text-white">دفتر وکالت و مشاوره حقوقی دکتر نجفی — نیشابور</p>
+    <p class="mt-1 text-slate-400">بانک اطلاعات محاکم و خدمات قضایی استان خراسان رضوی</p>
+  </footer>
+
+  <script>
+    // ================== داده‌های مراجع قضایی کل استان ==================
+    const COURTS_DATA = [
+      // نیشابور
+      { city: 'نیشابور', type: 'دادگستری مرکزی', name: 'دادگستری کل شهرستان نیشابور (دادگاه‌های حقوقی، کیفری و خانواده)', address: 'نیشابور، میدان باغرود، ابتدای جاده باغرود', phone: '۰۵۱-۴۲۲۲۲۳۱۱' },
+      { city: 'نیشابور', type: 'دادسرا', name: 'دادسرای عمومی و انقلاب نیشابور', address: 'نیشابور، خیابان فردوسی شمالی، روبروی بوستان کودک', phone: '۰۵۱-۴۲۲۴۸۱۱۱' },
+      { city: 'نیشابور', type: 'حل اختلاف', name: 'مجتمع شوراهای حل اختلاف شهرستان نیشابور', address: 'نیشابور، بلوار بعثت، نبش بعثت ۱۲', phone: '۰۵۱-۴۲۶۲۷۷۸۵' },
+      
+      // مشهد
+      { city: 'مشهد', type: 'تجدیدنظر استان', name: 'دادگاه‌های تجدیدنظر استان خراسان رضوی', address: 'مشهد، بلوار شهید ساجدی، حدفاصل ساجدی ۲ و ۴', phone: '۰۵۱-۳۷۶۳۲۰۰۱' },
+      { city: 'مشهد', type: 'دادگاه خانواده', name: 'مجتمع قضایی شهید مطهری (ویژه دعاوی خانواده مشهد)', address: 'مشهد، بلوار شفا، تقاطع خیابان ابوطالب و شفا', phone: '۰۵۱-۳۷۵۳۸۰۰۰' },
+      { city: 'مشهد', type: 'دعاوی کیفری ۲', name: 'مجتمع قضایی امام خمینی (ره) مشهد', address: 'مشهد، میدان ۱۰ دی، خیابان رازی', phone: '۰۵۱-۳۸۵۴۴۰۰۱' },
+      { city: 'مشهد', type: 'دعاوی حقوقی', name: 'مجتمع قضایی شهید بهشتی (حقوقی مشهد)', address: 'مشهد، بلوار شهید مدرس، مدرس ۴', phone: '۰۵۱-۳۲۲۲۶۱۸۱' },
+      { city: 'مشهد', type: 'دادسرا و انقلاب', name: 'دادسرا و دادگاه انقلاب اسلامی مشهد', address: 'مشهد، کوهسنگی، خیابان کوهسنگی ۶', phone: '۰۵۱-۳۸۴۳۲۷۰۱' },
+      { city: 'مشهد', type: 'کیفری ۱', name: 'مجتمع دادگاه‌های کیفری یک استان خراسان رضوی', address: 'مشهد، بلوار وحدت، جنب پارک وحدت', phone: '۰۵۱-۳۳۶۵۱۱۱۱' },
+      { city: 'مشهد', type: 'شورای حل اختلاف', name: 'اداره کل شوراهای حل اختلاف مشهد', address: 'مشهد، بلوار شهید صادقی (سازمان آب)، نبش صادقی ۱۵', phone: '۰۵۱-۳۷۲۷۸۹۳۳' },
+
+      // سبزوار
+      { city: 'سبزوار', type: 'دادگستری و دادسرا', name: 'دادگستری و دادسرای عمومی و انقلاب سبزوار', address: 'سبزوار، بلوار پاسداران، روبروی دانشگاه علوم پزشکی', phone: '۰۵۱-۴۴۶۴۲۰۰۰' },
+      { city: 'سبزوار', type: 'حل اختلاف', name: 'شورای حل اختلاف سبزوار', address: 'سبزوار، خیابان قائم، بعد از چهارراه بیهق', phone: '۰۵۱-۴۴۲۲۹۰۵۰' },
+
+      // تربت حیدریه
+      { city: 'تربت حیدریه', type: 'دادگستری مرکزی', name: 'دادگستری و دادسرای عمومی تربت حیدریه', address: 'تربت حیدریه، میدان دژبان، ابتدای بلوار شهید باهنر', phone: '۰۵۱-۵۲۲۲۷۷۰۱' },
+
+      // قوچان
+      { city: 'قوچان', type: 'دادگستری و دادسرا', name: 'دادگستری و دادسرای عمومی و انقلاب قوچان', address: 'قوچان، بلوار امام رضا (ع)، جنب فرمانداری', phone: '۰۵۱-۴۷۲۲۳۱۵۰' },
+
+      // کاشمر
+      { city: 'کاشمر', type: 'دادگستری', name: 'دادگستری و دادسرای عمومی کاشمر', address: 'کاشمر، خیابان امام خمینی، میدان شهدا', phone: '۰۵۱-۵۵۲۲۸۳۳۰' },
+
+      // تربت جام
+      { city: 'تربت جام', type: 'دادگستری', name: 'دادگستری شهرستان تربت جام', address: 'تربت جام، خیابان المهدی، جنب فرماندهی انتظامی', phone: '۰۵۱-۵۲۵۲۳۵۸۰' },
+
+      // گناباد
+      { city: 'گناباد', type: 'دادگستری', name: 'دادگستری و دادسرای شهرستان گناباد', address: 'گناباد، بلوار قصبه، روبروی پارک دانشگاه', phone: '۰۵۱-۵۷۲۲۲۰۰۱' },
+
+      // تایباد
+      { city: 'تایباد', type: 'دادگستری', name: 'دادگستری و دادسرای عمومی تایباد', address: 'تایباد، میدان وحدت، بلوار شریعتی', phone: '۰۵۱-۵۴۵۲۴۷۳۰' },
+
+      // چناران
+      { city: 'چناران', type: 'دادگستری', name: 'دادگستری و دادسرای عمومی چناران', address: 'چناران، بلوار امام خمینی، جنب آتش‌نشانی', phone: '۰۵۱-۴۶۱۲۲۳۴۰' },
+
+      // سرخس
+      { city: 'سرخس', type: 'دادگستری', name: 'دادگستری عمومی و انقلاب سرخس', address: 'سرخس، خیابان شهید بهشتی، میدان دادگستری', phone: '۰۵۱-۳۴۵۲۲۲۰۰' },
+
+      // فریمان
+      { city: 'فریمان', type: 'دادگستری', name: 'دادگستری شهرستان فریمان', address: 'فریمان، خیابان امام رضا، بلوار شهید قاسم سلیمانی', phone: '۰۵۱-۳۴۶۲۳۱۲۰' },
+
+      // خواف
+      { city: 'خواف', type: 'دادگستری', name: 'دادگستری و دادسرای شهرستان خواف', address: 'خواف، خیابان ۲۲ بهمن، روبروی ثبت اسناد', phone: '۰۵۱-۵۴۲۲۳۵۰۰' },
+
+      // درگز
+      { city: 'درگز', type: 'دادگستری', name: 'دادگستری شهرستان درگز', address: 'درگز، خیابان امام خمینی، روبروی پادگان', phone: '۰۵۱-۴۶۲۲۴۳۰۰' },
+
+      // بردسکن
+      { city: 'بردسکن', type: 'دادگستری', name: 'دادگستری و دادسرای عمومی بردسکن', address: 'بردسکن، میدان قدس، ابتدای بلوار شهید مطهری', phone: '۰۵۱-۵۵۴۲۳۴۵۰' }
+    ];
+
+    // ================== داده‌های دفاتر خدمات قضایی استان ==================
+    const OFFICES_DATA = [
+      // نیشابور
+      { city: 'نیشابور', code: '۹۶۳۱۸۰۱۱', name: 'دفتر خدمات قضایی خیابان ۱۷ شهریور', address: 'نیشابور، خیابان ۱۷ شهریور، روبروی بیمارستان ۲۲ بهمن', phone: '۰۵۱-۴۳۳۳۸۱۴۲' },
+      { city: 'نیشابور', code: '۹۶۳۱۸۰۱۲', name: 'دفتر خدمات قضایی بلوار فضل', address: 'نیشابور، بلوار فضل، بین فضل ۴ و ۶', phone: '۰۵۱-۴۲۶۳۹۹۱۵' },
+      { city: 'نیشابور', code: '۹۶۳۱۸۰۱۳', name: 'دفتر خدمات قضایی میدان خیام', address: 'نیشابور، میدان خیام، ابتدای خیابان دارایی', phone: '۰۵۱-۴۲۲۲۴۶۱۰' },
+      { city: 'نیشابور', code: '۹۶۳۱۸۰۱۴', name: 'دفتر خدمات قضایی بلوار جانبازان', address: 'نیشابور، بلوار جانبازان، تقاطع مدرس', phone: '۰۵۱-۴۲۶۱۸۵۰۰' },
+
+      // مشهد
+      { city: 'مشهد', code: '۹۳۳۱۸۰۰۱', name: 'دفتر خدمات قضایی بلوار شهید مدرس', address: 'مشهد، بلوار مدرس، ساختمان خاتم، طبقه اول', phone: '۰۵۱-۳۲۲۱۱۱۴۴' },
+      { city: 'مشهد', code: '۹۳۳۱۸۰۰۵', name: 'دفتر خدمات قضایی بلوار سجاد', address: 'مشهد، بلوار سجاد، بین گلریز و پامچال', phone: '۰۵۱-۳۷۶۴۲۲۰۰' },
+      { city: 'مشهد', code: '۹۳۳۱۸۰۱۲', name: 'دفتر خدمات قضایی میدان شهدا', address: 'مشهد، میدان شهدا، تقاطع صاحب الزمان', phone: '۰۵۱-۳۷۲۵۱۵۰۰' },
+      { city: 'مشهد', code: '۹۳۳۱۸۰۱۸', name: 'دفتر خدمات قضایی بلوار وکیل‌آباد', address: 'مشهد، بلوار وکیل‌آباد، نبش وکیل‌آباد ۲۳ (سیدرضی)', phone: '۰۵۱-۳۶۰۹۲۲۱۱' },
+      { city: 'مشهد', code: '۹۳۳۱۸۰۲۴', name: 'دفتر خدمات قضایی بلوار پیروزی', address: 'مشهد، بلوار پیروزی، نبش پیروزی ۲۸', phone: '۰۵۱-۳۸۷۹۵۴۳۲' },
+      { city: 'مشهد', code: '۹۳۳۱۸۰۳۰', name: 'دفتر خدمات قضایی میدان امام حسین', address: 'مشهد، صدمتری، میدان امام حسین، ابتدای خواجه‌ربیع', phone: '۰۵۱-۳۷۳۲۴۵۴۵' },
+      { city: 'مشهد', code: '۹۳۳۱۸۰۴۰', name: 'دفتر خدمات قضایی بلوار احمدآباد', address: 'مشهد، بلوار احمدآباد، نبش خیابان ملاصدرا', phone: '۰۵۱-۳۸۴۵۶۰۰۱' },
+
+      // سبزوار
+      { city: 'سبزوار', code: '۹۶۳۱۸۰۲۱', name: 'دفتر خدمات قضایی خیابان کاشفی', address: 'سبزوار، خیابان کاشفی شمالی، جنب اداره پست مرکزی', phone: '۰۵۱-۴۴۲۳۶۵۵۰' },
+      { city: 'سبزوار', code: '۹۶۳۱۸۰۲۲', name: 'دفتر خدمات قضایی بلوار بیهق', address: 'سبزوار، خیابان بیهق، روبروی مسجد جامع', phone: '۰۵۱-۴۴۲۲۱۸۰۰' },
+
+      // تربت حیدریه
+      { city: 'تربت حیدریه', code: '۹۶۳۱۸۰۳۱', name: 'دفتر خدمات قضایی بلوار شهید باهنر', address: 'تربت حیدریه، بلوار شهید باهنر، جنب دادگستری', phone: '۰۵۱-۵۲۲۴۷۶۵۰' },
+      { city: 'تربت حیدریه', code: '۹۶۳۱۸۰۳۲', name: 'دفتر خدمات قضایی خیابان فردوسی', address: 'تربت حیدریه، میدان مرکزی، ابتدای فردوسی جنوبی', phone: '۰۵۱-۵۲۲۲۹۹۰۰' },
+
+      // قوچان
+      { city: 'قوچان', code: '۹۶۳۱۸۰۴۱', name: 'دفتر خدمات قضایی میدان شهرداری', address: 'قوچان، خیابان بازار عشق‌آباد، نبش خیابان شهید کلاهدوز', phone: '۰۵۱-۴۷۲۴۱۱۵۰' },
+
+      // کاشمر
+      { city: 'کاشمر', code: '۹۶۳۱۸۰۵۱', name: 'دفتر خدمات قضایی خیابان مدرس', address: 'کاشمر، خیابان مدرس، جنب بنیاد شهید', phone: '۰۵۱-۵۵۲۴۳۰۰۰' },
+
+      // تربت جام
+      { city: 'تربت جام', code: '۹۶۳۱۸۰۶۱', name: 'دفتر خدمات قضایی بلوار امام رضا', address: 'تربت جام، میدان مادر، ابتدای بلوار امام رضا', phone: '۰۵۱-۵۲۵۳۱۱۰۰' },
+
+      // گناباد
+      { city: 'گناباد', code: '۹۶۳۱۸۰۷۱', name: 'دفتر خدمات قضایی خیابان ناصرخسرو', address: 'گناباد، بلوار ناصرخسرو، روبروی اداره ثبت اسناد', phone: '۰۵۱-۵۷۲۲۸۸۵۰' },
+
+      // تایباد
+      { city: 'تایباد', code: '۹۶۳۱۸۰۸۱', name: 'دفتر خدمات قضایی خیابان شریعتی', address: 'تایباد، خیابان شریعتی، روبروی شهرداری تایباد', phone: '۰۵۱-۵۴۵۳۲۲۴۰' },
+
+      // چناران
+      { city: 'چناران', code: '۹۶۳۱۸۰۹۱', name: 'دفتر خدمات قضایی بلوار بهشتی', address: 'چناران، بلوار شهید بهشتی، جنب مخابرات', phone: '۰۵۱-۴۶۱۲۶۷۰۰' }
+    ];
+
+    let currentTab = 'courts';
+
+    function setMainTab(tab) {
+      currentTab = tab;
+      const btnCourts = document.getElementById('tab-btn-courts');
+      const btnOffices = document.getElementById('tab-btn-offices');
+      const activeStyle = "px-5 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition-all bg-slate-900 text-amber-400 shadow-sm";
+      const inactiveStyle = "px-5 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200";
+
+      if (tab === 'courts') {
+        btnCourts.className = activeStyle;
+        btnOffices.className = inactiveStyle;
+      } else {
+        btnOffices.className = activeStyle;
+        btnCourts.className = inactiveStyle;
+      }
+      renderData();
+    }
+
+    function renderData() {
+      const container = document.getElementById('data-container');
+      const cityFilter = document.getElementById('city-filter').value;
+      const query = document.getElementById('search-input').value.trim().toLowerCase();
+      const countEl = document.getElementById('results-count');
+
+      const sourceList = (currentTab === 'courts') ? COURTS_DATA : OFFICES_DATA;
+
+      const filtered = sourceList.filter(item => {
+        const matchesCity = (cityFilter === 'all') || (item.city === cityFilter);
+        const searchStr = `${item.name} ${item.address} ${item.phone} ${item.code || ''} ${item.type || ''} ${item.city}`.toLowerCase();
+        const matchesQuery = !query || searchStr.includes(query);
+        return matchesCity && matchesQuery;
+      });
+
+      countEl.textContent = `نمایش ${filtered.length} مورد از مراجع قانونی استان خراسان رضوی`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full rounded-2xl border border-amber-200 bg-amber-50 p-8 text-center text-amber-900">
+            <i class="fa-solid fa-triangle-exclamation text-3xl mb-2 text-amber-600"></i>
+            <p class="font-bold text-sm">موردی با این مشخصات یافت نشد.</p>
+            <p class="text-xs mt-1 text-amber-700">لطفاً فیلتر شهرستان یا کلمه جستجو را تغییر دهید.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        if (currentTab === 'courts') {
+          return `
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
+                    ${item.city}
+                  </span>
+                  <span class="text-[11px] font-bold text-slate-500">${item.type}</span>
+                </div>
+                <h4 class="font-extrabold text-slate-800 text-sm leading-snug mb-3">${item.name}</h4>
+                <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                  <i class="fa-solid fa-location-dot text-amber-600 ml-1"></i> ${item.address}
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <a href="tel:${item.phone.replace(/[^0-9]/g, '')}" class="text-xs font-bold text-slate-700 hover:text-amber-600 transition-colors" dir="ltr">
+                  <i class="fa-solid fa-phone text-amber-600 mr-1"></i> ${item.phone}
+                </a>
+                <span class="text-[10px] text-slate-400 font-semibold">دادگستری خراسان رضوی</span>
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded bg-green-50 text-green-800 border border-green-200">
+                    ${item.city}
+                  </span>
+                  <span class="font-mono text-xs font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">کد: ${item.code}</span>
+                </div>
+                <h4 class="font-extrabold text-slate-800 text-sm leading-snug mb-3">${item.name}</h4>
+                <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                  <i class="fa-solid fa-location-dot text-amber-600 ml-1"></i> ${item.address}
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <a href="tel:${item.phone.replace(/[^0-9]/g, '')}" class="text-xs font-bold text-slate-700 hover:text-green-700 transition-colors" dir="ltr">
+                  <i class="fa-solid fa-phone text-green-600 mr-1"></i> ${item.phone}
+                </a>
+                <span class="text-[10px] text-green-700 bg-green-50 px-2 py-0.5 rounded font-bold">خدمات قضایی</span>
+              </div>
+            </div>
+          `;
+        }
+      }).join('');
+    }
+
+    // لیسنرهای جستجو و فیلتر
+    document.getElementById('city-filter').addEventListener('change', renderData);
+    document.getElementById('search-input').addEventListener('input', renderData);
+
+    // رندر اولیه
+    renderData();
+  </script>
+
+</body>
+</html>

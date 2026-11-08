@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ثبت‌نام نشست‌ها و کارگاه‌های آموزشی حقوقی | دفتر وکالت دکتر نجفی</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- جایگزین با این: -->
+<script src="assets/js/tailwind.min.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#0f172a',
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              800: '#1e293b',
+              900: '#0f172a'
+            },
+            accent: {
+              DEFAULT: '#C5A880',
+              dark: '#A88E65',
+              light: '#D9C3A5'
+            },
+            charcoal: '#334155',
+            surface: '#F8FAFC'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&display=swap');
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- نوار بالای صفحه (Header) -->
+  <!-- هدر صفحه کارگاه‌های آموزشی -->
+<header class="sticky top-0 z-50 bg-[#0c131d] border-b border-amber-500/20 shadow-md">
+  <div class="mx-auto max-w-7xl px-4 py-2.5 flex items-center justify-between">
+    
+    <!-- لوگوی اختصاصی -->
+    <a href="index.html" class="flex items-center shrink-0">
+      <img 
+        src="1000016237.jpg" 
+        alt="ابوالفضل نجفی وکیل مدافع" 
+        class="h-12 md:h-14 w-auto object-contain transition-transform duration-200 hover:scale-105"
+      >
+    </a>
+
+    <!-- لینک‌های هدایت سریع -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="index.html" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-white/5 px-3 py-1.5 text-xs font-bold text-white hover:text-amber-400 hover:border-amber-500/40 transition-colors">
+        <i class="fa-solid fa-house"></i> صفحه اصلی
+      </a>
+      <a href="laws.html" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-white/5 px-3 py-1.5 text-xs font-bold text-white hover:text-amber-400 hover:border-amber-500/40 transition-colors">
+        <i class="fa-solid fa-book-bookmark"></i> پایگاه قوانین
+      </a>
+    </div>
+
+  </div>
+</header>
+
+  <!-- محتوای اصلی رویداد و فرم ثبت‌نام -->
+  <main class="mx-auto max-w-5xl px-4 py-12 flex-grow w-full">
+    
+    <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+
+      <!-- فرم ثبت‌نام -->
+      <div class="p-6 sm:p-10 bg-slate-50">
+        <div class="max-w-2xl mx-auto">
+          <div class="text-center mb-8">
+            <h3 class="text-lg sm:text-xl font-extrabold text-slate-800">فرم نام‌نویسی و دریافت کارت ورود</h3>
+            <p class="text-xs text-slate-500 mt-1.5">جهت برنامه‌ریزی صندلی و ارسال پیامک هماهنگی، لطفاً فرم زیر را تکمیل کنید.</p>
+          </div>
+
+          <form id="standalone-workshop-form" class="space-y-4" novalidate>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="ws-name" class="block text-xs font-bold text-slate-700 mb-1.5">نام و نام خانوادگی <span class="text-red-500">*</span></label>
+                <input type="text" id="ws-name" required placeholder="مثال: علی رضایی"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-xs text-slate-800 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 transition-all" />
+              </div>
+
+              <div>
+                <label for="ws-phone" class="block text-xs font-bold text-slate-700 mb-1.5">شماره همراه <span class="text-red-500">*</span></label>
+                <input type="tel" id="ws-phone" required dir="ltr" placeholder="0915xxxxxxx"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-right text-xs text-slate-800 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 transition-all" />
+              </div>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="ws-role" class="block text-xs font-bold text-slate-700 mb-1.5">شغل یا حوزه فعالیت</label>
+                <select id="ws-role" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-xs text-slate-800 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 transition-all">
+                  <option value="کسبه و بازار">کسبه و فعال بازار</option>
+                  <option value="مشاور املاک و ساختمان">مشاور املاک و حوزه ساختمان</option>
+                  <option value="دانشجو و پژوهشگر">دانشجو یا پژوهشگر</option>
+                  <option value="عموم علاقه‌مندان" selected>عموم شهروندان</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="ws-attendance" class="block text-xs font-bold text-slate-700 mb-1.5">شیوه حضور</label>
+                <select id="ws-attendance" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-xs text-slate-800 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 transition-all">
+                  <option value="حضوری در دفتر نیشابور">حضوری در دفتر نیشابور</option>
+                  <option value="دریافت محتوای ویدیویی و صوتی">دریافت فایل ویدیویی / صوتی نشست</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="ws-question" class="block text-xs font-bold text-slate-700 mb-1.5">سوال یا ابهام حقوقی شما برای طرح در نشست (اختیاری)</label>
+              <textarea id="ws-question" rows="3" placeholder="اگر در زمینه چک صیادی یا معاملات مالی سوالی دارید بنویسید..."
+                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-xs text-slate-800 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200 transition-all"></textarea>
+            </div>
+
+            <button type="submit" id="ws-submit-btn"
+              class="w-full rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 py-3.5 text-xs sm:text-sm font-extrabold shadow transition-all flex items-center justify-center gap-2">
+              <span>تأیید و دریافت کارت شرکت در کارگاه</span>
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </form>
+
+          <!-- کارت نتیجه ثبت‌نام -->
+          <div id="ws-result-box" class="hidden mt-6 rounded-2xl border border-emerald-500/40 bg-emerald-50 p-6 text-center text-emerald-950">
+            <div class="flex items-center justify-center text-emerald-600 text-3xl mb-2">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h4 class="text-sm font-extrabold text-emerald-900">ثبت‌نام شما با موفقیت قطعی شد</h4>
+            <p id="ws-result-desc" class="text-xs text-emerald-800 mt-2 leading-relaxed"></p>
+            <div class="mt-4 flex justify-center gap-3">
+              <a href="index.html" class="inline-flex items-center gap-1.5 rounded-lg border border-emerald-300 bg-white px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+                بازگشت به صفحه اصلی سایت
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 py-6 text-center text-xs text-slate-400 border-t border-slate-800">
+    <p class="font-bold text-white">دفتر وکالت و مشاوره حقوقی دکتر نجفی — نیشابور</p>
+    <p class="mt-1 text-slate-400">برگزاری کارگاه‌ها و نشست‌های تخصصی حقوقی و آگاهی‌بخشی عمومی</p>
+  </footer>
+
+  <script>
+    function toEnglishDigits(str) {
+      return str
+        .replace(/[۰-۹]/g, d => d.charCodeAt(0) - 1776)
+        .replace(/[٠-٩]/g, d => d.charCodeAt(0) - 1632);
+    }
+
+    const form = document.getElementById('standalone-workshop-form');
+    const resultBox = document.getElementById('ws-result-box');
+    const resultDesc = document.getElementById('ws-result-desc');
+    const submitBtn = document.getElementById('ws-submit-btn');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('ws-name').value.trim();
+      const phone = toEnglishDigits(document.getElementById('ws-phone').value.trim()).replace(/\s+/g, '');
+      const role = document.getElementById('ws-role').value;
+      const attendance = document.getElementById('ws-attendance').value;
+      const question = document.getElementById('ws-question').value.trim();
+
+      if (!name) {
+        alert('لطفاً نام و نام خانوادگی را وارد فرمایید.');
+        return;
+      }
+      if (!/^09\d{9}$/.test(phone)) {
+        alert('شماره تلفن همراه معتبر ۱۱ رقمی وارد نمایید.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'در حال ثبت نام‌نویسی...';
+
+      const trackingCode = 'WS-' + Math.floor(10000 + Math.random() * 90000);
+
+      // متن پیام اختصاصی برای کارگاه آموزشی
+      const alertText = 
+        `🎓 ثبت‌نام جدید در کارگاه آموزشی:\n\n` +
+        `👤 شرکت‌کننده: ${name}\n` +
+        `📞 تلفن همراه: ${phone}\n` +
+        `💼 وضعیت شغلی/تحصیلی: ${role}\n` +
+        `📍 شیوه حضور: ${attendance}\n` +
+        `❓ پرسش مطرح‌شده: ${question || 'ندارد'}\n` +
+        `🔖 کد ثبت‌نام: ${trackingCode}`;
+
+      const BALE_TOKEN = "1326094037:BLAB3Hb6PWvp7FF5qLyM3jMEH4HsmbiakIk";
+      const BALE_CHAT_ID = "2122828186";
+
+      const encodedText = encodeURIComponent(alertText);
+      const baleUrl = `https://tapi.bale.ai/bot${BALE_TOKEN}/sendMessage?chat_id=${BALE_CHAT_ID}&text=${encodedText}`;
+
+      // ارسال مستقیم به ربات بله بدون CORS
+      fetch(baleUrl, {
+        method: 'GET',
+        mode: 'no-cors'
+      })
+      .catch(err => console.error("خطا در ارسال به بله:", err))
+      .finally(() => {
+        form.classList.add('hidden');
+        resultBox.classList.remove('hidden');
+        resultDesc.innerHTML = `مخاطب گرامی <b>${name}</b>، نام‌نویسی شما با کد پیگیری <b>${trackingCode}</b> با موفقیت ثبت شد. اطلاعات نشست به شماره <b>${phone}</b> ارسال خواهد شد.`;
+
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'تأیید و دریافت کارت شرکت در کارگاه';
+      });
+    });
+</script>
+<script>
+    function toEnglishDigits(str) {
+      return str
+        .replace(/[۰-۹]/g, d => d.charCodeAt(0) - 1776)
+        .replace(/[٠-٩]/g, d => d.charCodeAt(0) - 1632);
+    }
+
+    const wsForm = document.getElementById('standalone-workshop-form');
+    const wsResultBox = document.getElementById('ws-result-box');
+    const wsResultDesc = document.getElementById('ws-result-desc');
+    const wsSubmitBtn = document.getElementById('ws-submit-btn');
+
+    if (wsForm) {
+      wsForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const nameField = document.getElementById('ws-name');
+        const phoneField = document.getElementById('ws-phone');
+        const roleField = document.getElementById('ws-role');
+        const attendanceField = document.getElementById('ws-attendance');
+        const questionField = document.getElementById('ws-question');
+
+        const name = nameField ? nameField.value.trim() : '';
+        const phone = phoneField ? toEnglishDigits(phoneField.value.trim()).replace(/\s+/g, '') : '';
+        const role = roleField ? roleField.value : '';
+        const attendance = attendanceField ? attendanceField.value : '';
+        const question = questionField ? questionField.value.trim() : '';
+
+        if (!name) {
+          alert('لطفاً نام و نام خانوادگی را وارد فرمایید.');
+          return;
+        }
+        if (!/^09\d{9}$/.test(phone)) {
+          alert('شماره تلفن همراه معتبر ۱۱ رقمی وارد نمایید.');
+          return;
+        }
+
+        if (wsSubmitBtn) {
+          wsSubmitBtn.disabled = true;
+          wsSubmitBtn.innerHTML = 'در حال ثبت‌نام...';
+        }
+
+        const formData = new FormData();
+        formData.append('fullname', name);
+        formData.append('phone', phone);
+        formData.append('role', role);
+        formData.append('attendance', attendance);
+        formData.append('question', question);
+
+        try {
+          const response = await fetch('register_workshop.php', {
+            method: 'POST',
+            body: formData
+          });
+          const data = await response.json();
+
+          if (data.success) {
+            wsForm.classList.add('hidden');
+            if (wsResultBox) wsResultBox.classList.remove('hidden');
+            if (wsResultDesc) {
+              wsResultDesc.innerHTML = `مخاطب گرامی <b>${name}</b>، نام‌نویسی شما با کد پیگیری <b>${data.tracking_code}</b> با موفقیت ثبت شد.`;
+            }
+          } else {
+            alert(data.message || 'خطایی در ثبت‌نام رخ داد.');
+            if (wsSubmitBtn) {
+              wsSubmitBtn.disabled = false;
+              wsSubmitBtn.innerHTML = 'تأیید و دریافت کارت شرکت در کارگاه';
+            }
+          }
+        } catch (err) {
+          console.error('خطا:', err);
+          alert('خطا در ارتباط با سرور.');
+          if (wsSubmitBtn) {
+            wsSubmitBtn.disabled = false;
+            wsSubmitBtn.innerHTML = 'تأیید و دریافت کارت شرکت در کارگاه';
+          }
+        }
+      });
+    }
+  </script>
+    
+</body>
+</html>

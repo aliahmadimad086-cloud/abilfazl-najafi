@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پایگاه جامع قوانین و مقررات کاربردی | دفتر وکالت دکتر نجفی</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- جایگزین با این: -->
+<script src="assets/js/tailwind.min.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#0f172a',
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              800: '#1e293b',
+              900: '#0f172a'
+            },
+            accent: {
+              DEFAULT: '#C5A880',
+              dark: '#A88E65',
+              light: '#D9C3A5'
+            },
+            charcoal: '#334155',
+            surface: '#F8FAFC'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&display=swap');
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .poem-box {
+      font-family: 'Vazirmatn', serif;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- نوار بالای صفحه (Header) -->
+  <!-- هدر پایگاه قوانین هماهنگ با تم تیره و لوگوی اختصاصی -->
+<header class="sticky top-0 z-50 bg-[#0c131d] border-b border-amber-500/20 shadow-md">
+  <div class="mx-auto max-w-7xl px-4 py-2.5 flex items-center justify-between">
+    
+    <!-- لوگو -->
+    <a href="index.html" class="flex items-center shrink-0">
+      <img 
+        src="1000016237.jpg" 
+        alt="ابوالفضل نجفی وکیل مدافع" 
+        class="h-14 md:h-16 w-auto object-contain transition-transform duration-200 hover:scale-105"
+      >
+    </a>
+
+    <!-- دکمه‌های ناوبری -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="index.html" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-white/5 px-3 py-1.5 text-xs font-bold text-white hover:text-amber-400 hover:border-amber-500/40 transition-colors">
+        <i class="fa-solid fa-house"></i> صفحه اصلی
+      </a>
+      <a href="judicial-offices.html" class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-white/5 px-3 py-1.5 text-xs font-bold text-white hover:text-amber-400 hover:border-amber-500/40 transition-colors">
+        <i class="fa-solid fa-landmark"></i> مراجع قضایی
+      </a>
+    </div>
+
+  </div>
+</header>
+
+  <!-- بنر اصلی و کادر جستجو -->
+  <section class="bg-slate-900 text-white py-12 px-4 shadow-inner relative overflow-hidden">
+    <div class="mx-auto max-w-4xl text-center relative z-10">
+      <span class="inline-block rounded-full bg-amber-400/20 px-4 py-1 text-xs font-bold text-amber-300 mb-3">
+        بانک داده‌های تخصصی و کاربردی حقوقی
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+        سامانه جامع جستجوی قوانین و مقررات وکالتی
+      </h2>
+      <p class="mt-3 text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        تحلیل کاربردی قوانین چک صیادی، مبانی و مقررات حقوق خانواده، و قواعد حقوقی در ادبیات کهن
+      </p>
+
+      <div class="relative mt-8 max-w-2xl mx-auto">
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400">
+          <i class="fa-solid fa-magnifying-glass text-base"></i>
+        </div>
+        <input 
+          type="text" 
+          id="law-search-input" 
+          placeholder="جستجوی موضوع یا کلمه کلیدی (مثال: مهریه، نفقه، چک صیادی، عفو، سعدی)..." 
+          class="w-full rounded-2xl border border-slate-700 bg-white/10 pr-11 pl-4 py-3.5 text-sm text-white placeholder-slate-400 backdrop-blur-md focus:border-amber-400 focus:bg-white focus:text-slate-800 focus:outline-none transition-all shadow-lg"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- دکمه‌های سربرگ فیلتر -->
+  <section class="bg-white border-b border-slate-200 py-3 sticky top-16 z-40 shadow-sm overflow-x-auto">
+    <div class="mx-auto max-w-7xl px-4 flex gap-2 no-scrollbar whitespace-nowrap">
+      <button onclick="switchLawTab('sayad-cheque')" id="tab-btn-cheque" class="px-5 py-2.5 rounded-xl font-medium text-sm transition-all bg-slate-900 text-amber-400 shadow-sm">
+        قانون چک صیادی
+      </button>
+
+      <button onclick="switchLawTab('family-law')" id="tab-btn-family" class="px-5 py-2.5 rounded-xl font-medium text-sm transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        حقوق خانواده
+      </button>
+
+      <button onclick="switchLawTab('law-poetry')" id="tab-btn-poetry" class="px-5 py-2.5 rounded-xl font-medium text-sm transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        حقوق و شعر
+      </button>
+    </div>
+  </section>
+
+  <!-- محتوای کامل تب‌ها -->
+  <section class="mx-auto max-w-7xl px-4 py-10 flex-grow w-full">
+
+    <!-- تب ۱: قانون چک صیادی -->
+    <div id="tab-content-cheque" class="grid grid-cols-1 gap-10">
+      
+      <!-- پیشینه تصویب قانون صدور چک -->
+      <article class="rounded-2xl border border-slate-200/80 bg-white p-8 sm:p-10 shadow-sm text-center">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-4">
+          پیشینه تصویب قانون صدور چک در ایران
+        </h2>
+        <p class="text-sm sm:text-base leading-relaxed text-slate-600 max-w-5xl mx-auto text-justify sm:text-center">
+          پیشینه تصویب قانون صدور چک در ایران به قانون تجارت مصوب ۱۳۱۱ برمی‌گردد؛ زمانی که قانون‌گذار به این نتیجه رسید سند تجاری برای معاملات مردم و بازرگانان موجب سهل شدن مراودات فی‌مابین می‌شود. لذا قوانین چک را بر مدار امنیت تصویب و نیاز داشت که مردم به آن اعتماد کنند. و اما امروز قانون حاکم بر چک مصوب ۱۳۸۲ و اصلاحی ۱۳۹۷ است.
+        </p>
+      </article>
+
+      <!-- چند نکته حائز اهمیت -->
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800">چند نکته حائز اهمیت</h3>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-7 flex flex-col items-center text-center">
+            <span class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-amber-100 text-amber-800 font-bold mb-4">۱</span>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              ضامن در چک وقتی مسئول است که، دارنده ظرف ۴۵ روز برای چک‌های از یک نقطه به نقطه دیگر (از مشهد به تهران) صادر می‌کند اقدام نماید و ۱۵ روز برای چک‌هایی که از یک نقطه به همان نقطه صادر می‌شود.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-7 flex flex-col items-center text-center">
+            <span class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-amber-100 text-amber-800 font-bold mb-4">۲</span>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              چک صیادی وقتی منجر به صدور اجرائیه می‌گردد که در متن چک وصول وجه منوط به تحقق شرطی، یا بابت تضمین یا انجام معامله یا تعهدی نباشد.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-7 flex flex-col items-center text-center">
+            <span class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-amber-100 text-amber-800 font-bold mb-4">۳</span>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              در چک‌هایی که مدیر عامل یا صاحب امضاء شرکتی صادر می‌کند، امضاءکننده مسئول است و اموال او نیز در صورت اقدام توقیف می‌شود.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-7 flex flex-col items-center text-center">
+            <span class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-amber-100 text-amber-800 font-bold mb-4">۴</span>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              اگر چک صیادی ثبت نشد، بانک گواهی عدم ثبت صادر می‌کند. لیکن آن چک دیگر مشمول قوانین چک صیادی نیست و سند رسمی محسوب نمی‌گردد.
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- نکات و تبصره‌های تکمیلی -->
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800">نکات و تبصره‌های تکمیلی</h3>
+        </div>
+        <div class="space-y-4">
+          
+          <article class="rounded-2xl border border-amber-100 bg-[#FFFDF7] p-5 shadow-sm">
+            <div class="flex items-center justify-between gap-4">
+              <p class="text-xs sm:text-sm leading-relaxed text-slate-800">
+                <strong class="font-bold text-slate-900">نکته:</strong> ذینفع چک کسی است که چک به نام او صادر یا ظهرنویسی شده یا چک به او واگذار گردیده باشد (یا چک در وجه حامل به او واگذار گردیده).
+              </p>
+              <i class="fa-solid fa-scale-balanced text-amber-600 text-lg flex-shrink-0"></i>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-amber-100 bg-[#FFFDF7] p-5 shadow-sm">
+            <div class="flex items-center justify-between gap-4">
+              <p class="text-xs sm:text-sm leading-relaxed text-slate-800">
+                چک‌های تضمین‌شده مسافرتی را نمی‌توان متوقف نمود مگر آنکه بانک صادرکننده نسبت به آن ادعای جعل نماید؛ در این مورد حق دارنده چک راجع به شکایت به مراجع قضائی محفوظ است.
+              </p>
+              <i class="fa-solid fa-scale-balanced text-amber-600 text-lg flex-shrink-0"></i>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-amber-100 bg-[#FFFDF7] p-5 shadow-sm">
+            <div class="flex items-center justify-between gap-4">
+              <p class="text-xs sm:text-sm leading-relaxed text-slate-800">
+                رسیدگی به کلیه شکایات و دعاوی جزائی و حقوقی مربوط به چک در دادسرا و دادگاه تا خاتمه دادرسی فوری و خارج از نوبت به عمل خواهد آمد.
+              </p>
+              <i class="fa-solid fa-scale-balanced text-amber-600 text-lg flex-shrink-0"></i>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-amber-100 bg-[#FFFDF7] p-5 shadow-sm">
+            <div class="flex items-center justify-between gap-4">
+              <p class="text-xs sm:text-sm leading-relaxed text-slate-800">
+                طبق قانون فقط از صادرکننده می‌توان ضمانت تأخیر تأدیه دریافت کرد نه از ظهرنویسان و ضامنین.
+              </p>
+              <i class="fa-solid fa-scale-balanced text-amber-600 text-lg flex-shrink-0"></i>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-amber-100 bg-[#FFFDF7] p-5 shadow-sm">
+            <div class="flex items-center justify-between gap-4">
+              <p class="text-xs sm:text-sm leading-relaxed text-slate-800">
+                وجه چک را از طریق اجرائیه ثبتی مستقر در اداره ثبت اسناد و املاک شهرستان و یا اجرائیه فوری قضائی می‌توان اقدام نمود.
+              </p>
+              <i class="fa-solid fa-scale-balanced text-amber-600 text-lg flex-shrink-0"></i>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- تب ۲: حقوق خانواده -->
+    <div id="tab-content-family" class="hidden grid grid-cols-1 gap-10">
+      
+      <!-- تیتر و معرفی -->
+      <article class="rounded-2xl border border-slate-200/80 bg-white p-8 sm:p-10 shadow-sm text-center">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-4">
+          حقوق جامع خانواده؛ از تعالیم قرآن تا قواعد کاربردی دادگاه
+        </h2>
+        <p class="text-sm sm:text-base leading-relaxed text-slate-600 max-w-5xl mx-auto text-justify sm:text-center">
+          خانواده در نگاه حقوقی و اسلامی، کانون آرامش، مودت و کرامت انسانی است؛ نه میدان خشونت، تحقیر و نزاع. شناخت حقوق خانواده زمانی ارزشمند است که در کنار قانون‌مداری، با اخلاق و انصاف همراه شود.
+        </p>
+      </article>
+
+      <!-- ۱. آیات قرآن کریم و روایات درباره خانواده -->
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800">مبانی خانواده در قرآن و روایات اهل‌بیت (ع)</h3>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-50 text-amber-800 border border-amber-200">روم / ۲۱</span>
+              <i class="fa-solid fa-heart text-amber-500"></i>
+            </div>
+            <h4 class="font-bold text-slate-800 text-base mb-2">آرامش، مودت و خودشناسی</h4>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              هدف ازدواج آرامش است. مقدمه آرامش، خودشناسی زوجین و عدم مقایسه خود با دیگران است. زندگی مشترک صرفاً تأمین نیازهای مادی نیست.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-50 text-amber-800 border border-amber-200">نساء / ۱۹</span>
+              <i class="fa-solid fa-hands-holding text-amber-500"></i>
+            </div>
+            <h4 class="font-bold text-slate-800 text-base mb-2">معاشرت شایسته (عاشروهن بالمعروف)</h4>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              رفتار منصفانه، احترام به کرامت همسر (اسراء/۷۰)، ادب در گفتار، رعایت حریم خصوصی و پرهیز قطعی از هرگونه تمسخر و تحقیر در منزل.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-50 text-amber-800 border border-amber-200">نساء / ۱۲۸</span>
+              <i class="fa-solid fa-handshake text-amber-500"></i>
+            </div>
+            <h4 class="font-bold text-slate-800 text-base mb-2">اصل صلح و سازش (والصلح خیر)</h4>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              در بروز اختلافات، گفت‌وگو و توافق منصفانه اولویت دارد؛ البته سازش نباید به منزله پذیرش خشونت، اجبار یا نادیده گرفتن حقوق باشد.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-50 text-amber-800 border border-amber-200">بقره / ۲۲۸</span>
+              <i class="fa-solid fa-scale-balanced text-amber-500"></i>
+            </div>
+            <h4 class="font-bold text-slate-800 text-base mb-2">رعایت حقوق متقابل زوجین</h4>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              همان‌گونه که بر عهده زنان تکالیفی است، حقوق متناسبی نیز برای آنان وجود دارد. شناخت این موازنه از شکل‌گیری احساس بی‌عدالتی جلوگیری می‌کند.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-50 text-amber-800 border border-amber-200">تحریم / ۶</span>
+              <i class="fa-solid fa-children text-amber-500"></i>
+            </div>
+            <h4 class="font-bold text-slate-800 text-base mb-2">مسئولیت تربیتی خانواده</h4>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              والدین در قبال صیانت اخلاقی و روانی فرزندان مسئولند. خانواده سالم بستری برای آرامش روانی و تربیت نسل پیشرو و متقی است (فرقان/۷۴).
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-50 text-amber-800 border border-amber-200">کلام نبوی (ص)</span>
+              <i class="fa-solid fa-seedling text-amber-500"></i>
+            </div>
+            <h4 class="font-bold text-slate-800 text-base mb-2">ابراز محبت و برکت در رزق</h4>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+              «خیرکم خیرکم لاهله»؛ معیار واقعی اخلاق، رفتار با خانواده است. کلام محبت‌آمیز هرگز از یاد همسر نمی‌رود و خوش‌رفتاری سبب فزونی رزق است.
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ۲. قواعد کاربردی قانون خانواده -->
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800">حقوق و تکالیف کاربردی در قانون مدنی</h3>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-amber-100 text-amber-800 font-bold mb-3">۱</span>
+            <h4 class="font-bold text-slate-800 text-sm mb-2">مهریه و راه‌های مطالبه</h4>
+            <p class="text-xs leading-relaxed text-slate-600">
+              حق عندالمطالبه مالی زوجه. امکان پیگیری فوری از طریق اجرای ثبت و توقیف اموال قبل از دادگاه؛ ضرورت تعیین منطقی مهریه برای جلوگیری از بحران.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-amber-100 text-amber-800 font-bold mb-3">۲</span>
+            <h4 class="font-bold text-slate-800 text-sm mb-2">نفقه زوجه و فرزندان</h4>
+            <p class="text-xs leading-relaxed text-slate-600">
+              نفقه شامل مسکن، البسه، غذا، اثاث و درمان متناسب با شأن زوجه است. نفقه گذشته زن دین ممتاز است و مطالبه آن بر طلب سایر طلبکاران اولویت دارد.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-amber-100 text-amber-800 font-bold mb-3">۳</span>
+            <h4 class="font-bold text-slate-800 text-sm mb-2">تمکین، ریاست و استثنائات</h4>
+            <p class="text-xs leading-relaxed text-slate-600">
+              تمکین عام و خاص آثار ریاست خانواده است. موارد قانونی عدم تمکین: حق حبس برای زن باکره قبل از دریافت کل مهر، و خوف ضرر بدنی، مالی یا آبرویی.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow bg-white p-6">
+            <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-amber-100 text-amber-800 font-bold mb-3">۴</span>
+            <h4 class="font-bold text-slate-800 text-sm mb-2">شروط ضمن عقد و وکالت در طلاق</h4>
+            <p class="text-xs leading-relaxed text-slate-600">
+              امکان درج شروط معتبر (ماده ۱۱۱۹ ق.م) نظیر حق تحصیل، اشتغال، خروج از کشور و وکالت بلاعزل در طلاق برای پیشگیری از بن‌بست‌های حقوقی.
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ۳. مقررات طلاق، فرزندان و ارث -->
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="rounded-2xl border border-slate-200/80 shadow-sm bg-white p-6">
+          <h4 class="font-bold text-slate-800 text-base mb-2">اقسام طلاق در دادگاه</h4>
+          <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+            طلاق به درخواست زوج (م ۱۱۳۳)، طلاق به درخواست زوجه بر مبنای عسر و حرج یا شروط عقد، طلاق توافقی، و تفکیک طلاق بائن (خلع و مبارات) از طلاق رجعی.
+          </p>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200/80 shadow-sm bg-white p-6">
+          <h4 class="font-bold text-slate-800 text-base mb-2">حضانت و ملاقات فرزند</h4>
+          <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+            اولویت حضانت تا ۷ سالگی با مادر و پس از آن با پدر است؛ ملاک اصلی دادگاه مصلحت عالیه کودک است و حق ملاقات طرف دیگر هرگز سلب نمی‌گردد.
+          </p>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200/80 shadow-sm bg-white p-6">
+          <h4 class="font-bold text-slate-800 text-base mb-2">ارث و وصیت اموال</h4>
+          <p class="text-xs sm:text-sm leading-relaxed text-slate-600">
+            تعیین قواعد ولایت و قیمومت، احکام سهم‌الارث همسر و فرزندان، و صحت وصیت تملیکی تا سقف ثلث (یک‌سوم) کل ترکه متوفی.
+          </p>
+        </article>
+      </div>
+
+      <!-- ۴. فرزندخواندگی در حقوق ایران و اسلام -->
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800">فرزندخواندگی و سرپرستی کودکان بی‌سرپرست</h3>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-4">
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm bg-white p-6 text-center">
+            <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-amber-100 text-amber-800 font-bold mb-3">۱</span>
+            <h4 class="font-bold text-slate-800 text-sm mb-2">شرایط زوجین متقاضی</h4>
+            <p class="text-xs leading-relaxed text-slate-600">
+              تقاضای مشترک دادگاه، گذشت ۵ سال از ازدواج بدون فرزند، حداقل ۳۰ سال سن یکی از زوجین، تمکن مالی و صلاحیت اخلاقی بدون سوءپیشینه مؤثر.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm bg-white p-6 text-center">
+            <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-amber-100 text-amber-800 font-bold mb-3">۲</span>
+            <h4 class="font-bold text-slate-800 text-sm mb-2">شرایط طفل و تملیک مال</h4>
+            <p class="text-xs leading-relaxed text-slate-600">
+              سن کودک باید کمتر از ۱۲ سال بوده و پدر، مادر یا جد پدری در قید حیات نباشند. صدور حکم سرپرستی منوط به تملیک بخشی از اموال به کودک است.
+            </p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200/80 shadow-sm bg-white p-6 text-center">
+            <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-amber-100 text-amber-800 font-bold mb-3">۳</span>
+            <h4 class="font-bold text-slate-800 text-sm mb-2">اولویت‌های قانونی پذیرش</h4>
+            <p class="text-xs leading-relaxed text-slate-600">
+              ۱) زن و شوهر بدون فرزند، ۲) زنان و دختران بدون شوهر فاقد فرزند، و ۳) زن و شوهر دارای فرزند.
+            </p>
+          </article>
+        </div>
+
+        <article class="rounded-2xl border border-amber-100 bg-[#FFFDF7] p-5 shadow-sm">
+          <div class="flex items-center justify-between gap-4">
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-800">
+              <strong class="font-bold text-slate-900">دیدگاه فقهی و شناسنامه:</strong> مراجع عظام (امام خمینی، بهجت، تبریزی، فاضل لنکرانی، مکارم شیرازی و خامنه‌ای) انتساب شرعی کودک و اخذ شناسنامه با نام سرپرستان به منزله فرزند واقعی را جایز نمی‌دانند.
+            </p>
+            <i class="fa-solid fa-scale-balanced text-amber-600 text-lg flex-shrink-0"></i>
+          </div>
+        </article>
+      </div>
+
+      <!-- ۵. مسیر حل اختلاف و پیشگیری -->
+      <article class="rounded-2xl border border-amber-200 bg-amber-50/70 p-6 shadow-sm">
+        <h4 class="font-bold text-amber-950 text-base mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-lightbulb text-amber-600"></i>
+          مراحل پیشگیری و پیگیری قانونی اختلافات خانوادگی
+        </h4>
+        <div class="grid gap-4 sm:grid-cols-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+          <div class="bg-white/80 p-4 rounded-xl border border-amber-200/60">
+            <strong class="text-slate-900 block mb-1">مرحله ۱: ریش‌سفیدی و میانجی‌گری</strong>
+            مراجعه به معتمدین فامیل، داوران آگاه یا خانه‌های صلح برای حل تنش‌ها بدون تشکیل پرونده قضایی.
+          </div>
+          <div class="bg-white/80 p-4 rounded-xl border border-amber-200/60">
+            <strong class="text-slate-900 block mb-1">مرحله ۲: مشاوره تخصصی خانواده</strong>
+            بررسی دلایل تعارض با مشاوران ذی‌صلاح جهت اصلاح الگوهای ارتباطی پیش از هر تصمیم قطعی.
+          </div>
+          <div class="bg-white/80 p-4 rounded-xl border border-amber-200/60">
+            <strong class="text-slate-900 block mb-1">مرحله ۳: مراجع قضایی</strong>
+            ثبت دادخواست در دفاتر خدمات الکترونیک قضایی و پیگیری قانونی با تنظیم صحیح مستندات و توافقات.
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- تب ۳: حقوق و شعر (اشعار سعدی) -->
+    <div id="tab-content-poetry" class="hidden grid grid-cols-1 gap-10">
+      
+      <!-- مقدمه حقوق و شعر -->
+      <article class="rounded-2xl border border-slate-200/80 bg-white p-8 sm:p-10 shadow-sm text-center">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-4">
+          قواعد و اصول حقوقی در اشعار سعدی
+        </h2>
+        <p class="text-sm sm:text-base leading-relaxed text-slate-600 max-w-5xl mx-auto text-justify sm:text-center">
+          سعدی بیشتر عمر گرانبهای خود را صرف مسافرت و معاشرت با عموم مردم نمود. مسافرت‌های او به کشورهای اسلامی و عربی‌زبان، از مهم‌ترین دلایل تسلط و آشنایی عمیق وی با فقه و حقوق اسلامی به شمار می‌رود.
+        </p>
+      </article>
+
+      <!-- عفو از دیدگاه سعدی -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800">عفو و گذشت از دیدگاه سعدی</h3>
+        </div>
+        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+          قرآن کریم در آیه ۱۹۹ سوره اعراف به عفو امر نموده و پیامبر اکرم (ص) فرمودند: «قهرمان‌ترین شما کسی است که هنگام توانایی و قدرت عفو کند». عفو عمومی در ماده ۹۶ قانون مجازات اسلامی از اختیارات رهبری و مستند به بند ۱۱ اصل ۱۱۰ قانون اساسی است.
+        </p>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">گر گرفتارم کنی مستوجبم</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">ور ببخشی عفو بهتر کانتقام</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">گرچه بی‌فرمانی از حد رفت و تقصیر از حساب</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">هر چه هستم همچنان هستم به عفو امیدوار</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">اگر توقع بخشایش خدایت هست</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">به چشم عفو و کرم بر شکستگان بخشای</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">عفو کردم از وی عمل‌های زشت</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">به انعام خویش آرمش در بهشت</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- اعتدال در مجازات و تحقیقات مقدماتی -->
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="w-2 h-6 bg-amber-500 rounded-full inline-block"></span>
+              <h4 class="font-extrabold text-slate-800 text-lg">اعتدال در مجازات</h4>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+              تناسب جرم و مجازات و پرهیز از سخت‌گیری مفرط یا سهل‌انگاری در اجرای عدالت:
+            </p>
+          </div>
+          <div class="rounded-xl border border-amber-100 bg-[#FFFDF7] p-5 text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">نه کوتاه‌دستی و بیچارگی</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">نه زجر و تطاول به یکبارگی</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-2 h-6 bg-amber-500 rounded-full inline-block"></span>
+            <h4 class="font-extrabold text-slate-800 text-lg">تحقیقات مقدماتی و یقین قضایی</h4>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+            تأنی، تسلط عقل بر خشم و منع صدور حکم قضایی بر مبنای ظن و گمان:
+          </p>
+          <div class="space-y-3">
+            <div class="rounded-xl border border-amber-100 bg-[#FFFDF7] p-3.5 text-center poem-box">
+              <p class="text-xs sm:text-sm font-semibold text-slate-800">نگویم چو جنگ‌آوری پای دار</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">چو خشم آیدت عقل بر جای دار</p>
+            </div>
+            <div class="rounded-xl border border-amber-100 bg-[#FFFDF7] p-3.5 text-center poem-box">
+              <p class="text-xs sm:text-sm font-semibold text-slate-800">چو خشم آیدت بر گناه کسی</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">تحمل کنش در عقوبت بسی</p>
+            </div>
+            <div class="rounded-xl border border-amber-100 bg-[#FFFDF7] p-3.5 text-center poem-box">
+              <p class="text-xs sm:text-sm font-semibold text-slate-800">به پندار نتوان سخن گفت زود</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">نگفتم تو را تا یقینم نبود</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- جبرنگاری رفتار بزهکار و پیشگیری از جرم -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800">جبرنگاری رفتار بزهکار و اصل پیشگیری</h3>
+        </div>
+        <p class="text-sm font-bold text-amber-700 bg-amber-50 border border-amber-200/80 rounded-xl p-4 mb-6 leading-relaxed">
+          پرسش جرم‌شناسی: «چرا بیش از ۷۰٪ زندانیان برای چندین بار است که در زندان به سر می‌برند؟»
+        </p>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">آهنی را که موریانه بخورد</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">نتوان برد از او به صیقل زنگ</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">با سیه‌دل چه سود گفتن وعظ؟</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">نرود میخ آهنی در سنگ</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">هیچ صیقل نکو نداند کرد</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">آهنی را که بدگهر باشد</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">دیو اگر صومعه‌داری کند اندر ملکوت</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">همچو ابلیس همان طینت ماضی دارد</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center poem-box">
+            <p class="text-sm font-semibold text-slate-800">مقدر است که از هر کسی چه فعل آید</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">درخت مقل نه خرما دهد نه شفتالو</p>
+          </div>
+          <div class="rounded-2xl border border-amber-200 bg-[#FFFDF7] p-5 shadow-sm text-center poem-box">
+            <span class="text-xs font-bold text-amber-700 block mb-2">اصل پیشگیری از وقوع جرم</span>
+            <p class="text-sm font-semibold text-slate-800">علاج واقعه پیش از وقوع باید کرد</p>
+            <p class="text-sm font-semibold text-slate-800 mt-1">دریغ سود ندارد چو رفت کار از دست</p>
+            <p class="text-sm font-semibold text-slate-800 mt-3 pt-3 border-t border-amber-100">به روزگار سلامت سلاح جنگ بساز</p>
+            <p class="text-sm font-semibold text-slate-800 mt-1">وگرنه سیل چو بگرفت، سد نشاید بست</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- خانواده در کلام سعدی -->
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2 h-7 bg-amber-500 rounded-full inline-block"></span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800">روابط زوجین و خانواده از دیدگاه سعدی</h3>
+        </div>
+
+        <div class="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h4 class="font-bold text-slate-800 text-base mb-2">عده نکاح از دیدگاه سعدی:</h4>
+          <p class="text-xs text-slate-500 mb-4">رعایت مهلت قانونی عده پس از مفارقت جهت نکاح مجدد:</p>
+          <div class="rounded-xl border border-amber-100 bg-[#FFFDF7] p-4 text-center poem-box max-w-xl mx-auto">
+            <p class="text-sm font-semibold text-slate-800">وان همسر عزیز که از عده دست داشت</p>
+            <p class="text-sm font-semibold text-slate-800 mt-2">خواهد که باز بسته عقد فلان شود</p>
+          </div>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <!-- حسن معاشرت -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="w-2 h-5 bg-green-500 rounded-full inline-block"></span>
+              <h4 class="font-bold text-slate-800 text-base">مصادیق حسن معاشرت</h4>
+            </div>
+            <div class="space-y-3">
+              <div class="rounded-xl border border-slate-100 bg-slate-50 p-3.5 text-center poem-box">
+                <p class="text-xs sm:text-sm font-semibold text-slate-800">زن خوب فرمانبر پارسا</p>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">کند مرد درویش را پادشا</p>
+              </div>
+              <div class="rounded-xl border border-slate-100 bg-slate-50 p-3.5 text-center poem-box">
+                <p class="text-xs sm:text-sm font-semibold text-slate-800">همه روز اگر غم خوری، غم مدار</p>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">چو شب غمگسارت بود در کنار</p>
+              </div>
+              <div class="rounded-xl border border-slate-100 bg-slate-50 p-3.5 text-center poem-box">
+                <p class="text-xs sm:text-sm font-semibold text-slate-800">چو مستور باشد زن و خوبروی</p>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">به دیدار او در بهشت است شوی</p>
+              </div>
+              <div class="rounded-xl border border-slate-100 bg-slate-50 p-3.5 text-center poem-box">
+                <p class="text-xs sm:text-sm font-semibold text-slate-800">کسی برگرفت از جهان کام دل</p>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">که یکدل بود با وی آرام دل</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- سوء معاشرت -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="w-2 h-5 bg-rose-500 rounded-full inline-block"></span>
+              <h4 class="font-bold text-slate-800 text-base">مصادیق سوءمعاشرت</h4>
+            </div>
+            <div class="space-y-3">
+              <div class="rounded-xl border border-slate-100 bg-slate-50 p-3.5 text-center poem-box">
+                <p class="text-xs sm:text-sm font-semibold text-slate-800">چو در زندگانی بدی با عیال</p>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">گرت مرگ خواهند، از ایشان منال</p>
+              </div>
+              <div class="rounded-xl border border-slate-100 bg-slate-50 p-3.5 text-center poem-box">
+                <p class="text-xs sm:text-sm font-semibold text-slate-800">تهی‌پای رفتن به از کفش تنگ</p>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">بلای سفر به که در خانه جنگ</p>
+              </div>
+              <div class="rounded-xl border border-slate-100 bg-slate-50 p-3.5 text-center poem-box">
+                <p class="text-xs sm:text-sm font-semibold text-slate-800">زنی گفت بازی‌کنان شوی را</p>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">عسل تلخ باشد ترش‌روی را</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- فوتر -->
+  <footer class="bg-slate-900 py-8 text-center text-xs text-slate-400 border-t border-slate-800">
+    <p class="font-bold text-white">پایگاه حقوقی دفتر وکالت و مشاوره دکتر نجفی — نیشابور</p>
+    <p class="mt-2 text-slate-400">تمامی حقوق مادی و معنوی محفوظ است.</p>
+  </footer>
+
+  <!-- اسکریپت جابه‌جایی تب‌ها و جستجوی لحظه‌ای -->
+  <script>
+    function switchLawTab(tabName) {
+      const chequeContent = document.getElementById('tab-content-cheque');
+      const familyContent = document.getElementById('tab-content-family');
+      const poetryContent = document.getElementById('tab-content-poetry');
+
+      const btnCheque = document.getElementById('tab-btn-cheque');
+      const btnFamily = document.getElementById('tab-btn-family');
+      const btnPoetry = document.getElementById('tab-btn-poetry');
+
+      const activeClasses = "px-5 py-2.5 rounded-xl font-medium text-sm transition-all bg-slate-900 text-amber-400 shadow-sm";
+      const inactiveClasses = "px-5 py-2.5 rounded-xl font-medium text-sm transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200";
+
+      // پنهان کردن همه بخش‌ها
+      if (chequeContent) chequeContent.classList.add('hidden');
+      if (familyContent) familyContent.classList.add('hidden');
+      if (poetryContent) poetryContent.classList.add('hidden');
+
+      // ریست رنگ دکمه‌ها
+      if (btnCheque) btnCheque.className = inactiveClasses;
+      if (btnFamily) btnFamily.className = inactiveClasses;
+      if (btnPoetry) btnPoetry.className = inactiveClasses;
+
+      // نمایش تب انتخاب‌شده
+      if (tabName === 'family-law') {
+        if (familyContent) familyContent.classList.remove('hidden');
+        if (btnFamily) btnFamily.className = activeClasses;
+      } else if (tabName === 'law-poetry') {
+        if (poetryContent) poetryContent.classList.remove('hidden');
+        if (btnPoetry) btnPoetry.className = activeClasses;
+      } else {
+        if (chequeContent) chequeContent.classList.remove('hidden');
+        if (btnCheque) btnCheque.className = activeClasses;
+      }
+    }
+
+    // جستجوی زنده در تمامی کارت‌ها
+    const searchInput = document.getElementById('law-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        const cards = document.querySelectorAll('#tab-content-cheque article, #tab-content-family article, #tab-content-poetry article, #tab-content-poetry .poem-box');
+        
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (!query || text.includes(query)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
